@@ -1,4 +1,4 @@
-from src.factory import get_scribe
+from ..src.factory import get_scribe
 
 
 def main(*wav_files):
