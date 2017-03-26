@@ -1,6 +1,13 @@
-from RaspberryPi_Project.bin.scribe import main
+from sys import argv
+from os import path, sys, environ
+
+
+from bin.scribe import main
 
 
 if __name__ == '__main__':
-    from sys import argv
-    main(*argv[1:])
+	print(path.dirname(path.abspath(__file__)))
+	environ['GOOGLE_APPLICATION_CREDENTIALS'] = "{}/secret/audio transcription-259fc609e0f1.json".format(path.dirname(path.abspath(__file__)))
+	sys.path.append(path.dirname(path.abspath(__file__)))
+	main(*argv[1:])
+
