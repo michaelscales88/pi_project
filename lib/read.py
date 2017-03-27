@@ -4,7 +4,7 @@
 import sys
 from datetime import datetime
 from os import getcwd
-from os.path import dirname
+from os.path import dirname, abspath
 from sys import argv
 from git import Repo
 
@@ -12,11 +12,12 @@ from git import Repo
 def read(inc_text):
 	
 	ts = datetime.today().now().time()
-	textFile = "{lvl_back}/test/{timestamp}_transcription.txt".format(lvl_back=dirname(getcwd()),
-																	 timestamp=ts)
+	textFile = "/{lvl_back}/test/{timestamp}_transcription.txt".format(lvl_back=dirname(dirname(abspath(__file__))),
+										 timestamp=ts)
 	print('test stuff')
 	print(getcwd())
 	print(textFile)
+	print(dirname(abspath(__file__)))
 
 	# Open file	
 	with open(textFile, mode="wb") as f:
