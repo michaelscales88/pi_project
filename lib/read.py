@@ -14,6 +14,9 @@ def read(inc_text):
 	ts = datetime.today().now().time()
 	textFile = "{lvl_back}/test/{timestamp}_transcription.txt".format(lvl_back=dirname(getcwd()),
 																	 timestamp=ts)
+	print('test stuff')
+	print(getcwd())
+	print(textFile)
 
 	# Open file	
 	with open(textFile, mode="wb") as f:
