@@ -4,6 +4,7 @@
 import sys
 from datetime import datetime
 from os import getcwd
+from os.path import dirname
 from sys import argv
 from git import Repo
 
@@ -11,15 +12,16 @@ from git import Repo
 def read(inc_text):
 	
 	ts = datetime.today().now().time()
-	textFile = "{cwd}/{timestamp}_transcription.txt".format(cwd=getcwd(),
-															timestamp=ts)
+	textFile = "{lvl_back}/test/{timestamp}_transcription.txt".format(lvl_back=dirname(getcwd()),
+																	 timestamp=ts)
+
 	# Open file	
 	with open(textFile, mode="wb") as f:
 		f.seek(0)
 		f.write(inc_text)
 
 	# Push and commit to GitHub
-
+	return
 	repo = Repo('.git')
 	file_list = [textFile] # Text file location
 	commit_message = 'Test push'
