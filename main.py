@@ -2,7 +2,7 @@ from sys import argv
 from os import path, sys, environ
 
 # print(path.abspath(__file__))
-# from bin.scribe import main
+from .bin.scribe import main
 
 
 if __name__ == '__main__':
